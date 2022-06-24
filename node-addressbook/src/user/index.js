@@ -11,9 +11,8 @@ router.get('/', testMiddleware(), (req, res) => get(req, res));
 router.post('/auth/register', register);
 router.post('/auth/login', login);
 router.post('/auth/addcontact', addCont)
-router.delete('/auth/removecontact', removeContact)
-router.put('/auth/updatecontact', updateContact)
-
+router.delete('/auth/removecontact', removeContact);
+router.put('/auth/updatecontact', updateContact);
 router.get('/getcontacts', testMiddleware(), (req, res) => getCont(req, res));
 
 
