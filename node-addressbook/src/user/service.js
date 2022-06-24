@@ -9,7 +9,7 @@ async function getUsers() {
 }
 
 async function getById(id) {
-  return await User.findById(id);
+  return await User.findById(id).populate("contacts");
 }
 
 async function getContactById(id) {
@@ -63,21 +63,11 @@ async function addContacts(body) {
   return await contact.save();
 }
 
-// async function getContacts() {
-//   // projection, in case you want to return certain values
-//   return await Contact.find().populate('user');
-
-// }
-
-
-
-
 module.exports = {
   getUsers,
   getById,
   addUser,
   getByEmail,
   addContacts,
- 
   getContactById,
 }
