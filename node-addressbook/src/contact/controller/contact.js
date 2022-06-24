@@ -1,7 +1,7 @@
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { addContacts , getContactById } = require('../../user/service');
+const { addContacts , getContactById, getUsersbyContacts} = require('../../user/service');
 const TOKEN_SECRET = process.env.TOKEN_SECRET || "";
 const User = require("../../../model/User");
 const Contact = require("../../../model/Contact");
@@ -29,6 +29,8 @@ async function addCont(req, res) {
     res.status(500).send(error);
   }
 }
+
+
 
 
 async function getCont(req, res) {
@@ -79,7 +81,7 @@ async function getCont(req, res) {
           }
 
         );
-      return res.send(contact);
+      return res.send("Contact Updated");
      
     } catch (error) {
       console.log(error);
