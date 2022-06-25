@@ -1,7 +1,7 @@
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { addContacts , getContactById, getUsersbyContacts} = require('../../user/service');
+const { addContacts , getContactById} = require('../../user/service');
 const TOKEN_SECRET = process.env.TOKEN_SECRET || "";
 const User = require("../../../model/User");
 const Contact = require("../../../model/Contact");
