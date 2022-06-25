@@ -10,10 +10,10 @@ const testMiddleware = require('../../middleware/test');
 router.get('/', testMiddleware(), (req, res) => get(req, res));
 router.post('/auth/register', register);
 router.post('/auth/login', login);
-router.post('/auth/addcontact', addCont)
-router.delete('/auth/removecontact', removeContact);
-router.put('/auth/updatecontact', updateContact);
-router.get('/getcontacts', testMiddleware(), (req, res) => getCont(req, res));
+router.post('/auth/addcontact', testMiddleware(),addCont);
+router.delete('/auth/removecontact', testMiddleware(), removeContact);
+router.put('/auth/updatecontact', testMiddleware(), updateContact);
+router.get('/auth/getcontacts', testMiddleware(), (req, res) => getCont(req, res));
 
 
 module.exports = router;
