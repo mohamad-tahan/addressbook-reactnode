@@ -1,15 +1,5 @@
 const mongoose = require("mongoose");
 
-const locationSchema = new mongoose.Schema({
-  type: {
-    type: String,
-    enum: ["Point"],
-  },
-  coordinates: {
-    type: [Number],
-  },
-});
-
 const contactSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -32,10 +22,13 @@ const contactSchema = new mongoose.Schema({
     type: String,
     min: 3,
     max: 255,
-    unique:false,
+    
   },
 
-  location: locationSchema,
+  location: {
+    type: String,
+    
+  },
 
   user: {
     type: mongoose.Schema.Types.ObjectId,
