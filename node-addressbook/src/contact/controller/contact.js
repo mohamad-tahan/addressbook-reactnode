@@ -1,7 +1,6 @@
-
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const { addContacts , getContactById} = require('../../user/service');
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const { addContacts, getContactById } = require("../../user/service");
 const TOKEN_SECRET = process.env.TOKEN_SECRET || "";
 const User = require("../../../model/User");
 const Contact = require("../../../model/Contact");
@@ -30,68 +29,79 @@ async function addCont(req, res) {
   }
 }
 
-
-
-
 async function getCont(req, res) {
-    try {
-      console.log(req.query);
+  try {
+    console.log(req.query);
 
-      if (req.query.id) { // ?id=k1231 -> query paramet
-        const id = req.query.id;
-        const result = await getContactById(id);
-        console.log('result of specific contact =>', result);
-        return res.send(result);
+    if (req.query.id) {
+      // ?id=k1231 -> query paramet
+      const id = req.query.id;
+      const result = await getContactById(id);
+      console.log("result of specific contact =>", result);
+      return res.send(result);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function getContbyId(req, res) {
+  try {
+    console.log(req.query);
+    if (req.query.id) {
+      // const id = req.query.id;
+      const result = await Contact.findOne({ _id: req.query.id });
+      console.log("result of specific user =>", result);
+      return res.send(result);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function removeContact(req, res) {
+  try {
+    const contact = await Contact.findOne({ _id: req.query.id });
+    // if !product return -> 404
+
+    const deleteResult = await contact.remove();
+    // deleteResult -> 400
+
+    await User.updateOne(
+      { _id: contact.user },
+      { $pull: { contacts: contact._id } }
+    );
+
+    return res.send({ msg: "Contact Removed" });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function updateContact(req, res) {
+  try {
+    const contact = await Contact.findByIdAndUpdate(
+      { _id: req.query.id },
+      {
+        $set: {
+          name: req.body.name,
+          phone: req.body.phone,
+          email: req.body.email,
+          relationship: req.body.relationship,
+          location: req.body.location,
+        },
       }
-  
-    } catch (error) {
-      console.log(error);
-    }
+    );
+    return res.send("Contact Updated");
+  } catch (error) {
+    console.log(error);
   }
-
-
-  async function removeContact(req, res) {
-    try {
-      const contact = await Contact.findOne({ _id: req.query.id });
-      // if !product return -> 404
-  
-      const deleteResult = await contact.remove();
-      // deleteResult -> 400
-  
-      await Contact.updateOne({ _id: contact.user }, 
-        { $pull: { contacts: contact._id } });
-  
-      return res.send("Contact Removed");
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  async function updateContact(req, res) {
-    try {
-      const contact = await Contact.findByIdAndUpdate({ _id: req.query.id }, 
-        { 
-            $set :  {
-              name: req.body.name,
-              phone:req.body.phone,
-              email: req.body.email,
-              relationship:req.body.relationship,
-              location:req.body.location,
-            }
-          }
-
-        );
-      return res.send("Contact Updated");
-     
-    } catch (error) {
-      console.log(error);
-    }
-  }
+}
 
 module.exports = {
-    addCont,
-    getCont,
-    removeContact,
-    updateContact,
-    
-  };
+  addCont,
+  getCont,
+  removeContact,
+  updateContact,
+  getContbyId,
+};
