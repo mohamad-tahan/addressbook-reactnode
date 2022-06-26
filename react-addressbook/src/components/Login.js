@@ -18,6 +18,7 @@ async function loginUser(credentials) {
 }
 
 function Login() {  
+  window.localStorage.clear();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -32,13 +33,14 @@ function Login() {
       var user = jwt_decode(response.token);
       console.log(user);
       localStorage.setItem("user_id", user._id);
+      localStorage.setItem("user_name", user.name);
       console.log("token in response")
       try {
         alert("You are now Logged in.");
         
         
         localStorage.setItem("token", response["token"]);
-        window.location.href = "/addContact";
+        window.location.href = "/viewContacts";
       } catch {
         alert("Failed");
         console.log(response);
