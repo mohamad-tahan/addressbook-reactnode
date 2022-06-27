@@ -6,6 +6,7 @@ import { GrEdit } from "react-icons/gr";
 import { MdDelete } from "react-icons/md";
 import AddContact from "./AddContact";
 import UpdateContact from "./UpdateContact";
+import Logout from "./Logout";
 
 const ViewContacts = ({onDelete}) => {
   const [contacts, setContacts] = useState([]);
@@ -99,30 +100,34 @@ const deleteContact = async (id) => {
     }
 
   return (
-    <div>
-      <center>Hello {name}</center>  
+    <div className="addContact">
+     <Logout/>
+      <center><h1>Hello {name}</h1>
+      
+      
+      </center>  
         <br/>
-        <label>Search <input type="text" onChange={(event) =>handleSearch(event)}/></label>
+        <label className="search">Search <input className="searchInput" type="text" onChange={(event) =>handleSearch(event)}/></label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button onClick={()=>{showModal()} }> Add a Contact</button>
+        <button className="btn-addCont" onClick={()=>{showModal()} }> Add a Contact</button>
         {isModal && <AddContact setIsModal = {setIsModal}/> }
         <br/><br/>
-      <table>
+      <table className="thead">
         
-        <tr>
+        <tr className="tr1">
           <th>Name</th>
           <th>Phone</th>
           <th>Email</th>
-          <th>Relationship</th>
+          <th>Status</th>
           <th>Location</th>
-          <th className="no"></th>
+          <th className="noo"></th>
         </tr>
       </table>
 
       {contacts.map((contact, index) => {
         return (
-          <table>
-            <tr>
+          <table className="tbody">
+            <tr className="tr2">
               <td> {contacts[index].name}</td>
               <td> {contacts[index].phone}</td>
               <td> {contacts[index].email}</td>
@@ -131,10 +136,10 @@ const deleteContact = async (id) => {
              
               <td className="no">
 
-             <button  onClick={()=>{showUpdate(contact._id)} }> <GrEdit /></button>
+             <button className="icon" onClick={()=>{showUpdate(contact._id)} }> <GrEdit /></button>
              {isUpdate && <UpdateContact setUpdateModal = {setUpdateModal}  contact = {contact}/> }
 
-             <button value = {contacts[index]._id} onClick={(e)=>deleteContact(contact._id)}><MdDelete /></button>
+             <button  className="icon" value = {contacts[index]._id} onClick={(e)=>deleteContact(contact._id)}><MdDelete /></button>
 
               </td>
             </tr>

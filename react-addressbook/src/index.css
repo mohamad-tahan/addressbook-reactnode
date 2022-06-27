@@ -9,121 +9,127 @@
 
 body {
 
-  width: 500px;
-  margin: 0 auto;
+ 
   margin-top: 10px;
   margin-bottom: 15px;
+  background-color: whitesmoke;
   
- 
 }
 
 /* styling register and login boxes */
 
 .loginBox,
-.signupBox {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 350px;
-    min-height: 400px;
-    background: rgba(42, 70, 37, 0.949);
-    border-radius: 10px;
-    padding: 40px;
-    box-sizing: border-box;
-    border: 2px solid black;
+.signupBox,
+.addContact {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  min-height: 400px;
+  background-color:rgba(14, 60, 2, 0.515);
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 2px solid black;
+  
+}
+.addContact{
+  background-color: whitesmoke;
 }
 
-
-
 .title {
-color: white;
-  font-size: 37px;
+  color: white;
+  font-size: 33px;
   letter-spacing: 1px;
   font-weight: bold;
   text-align: center;
   padding-bottom: 25px;
-
 }
 
 .loginBox input,
 .signupBox input,
 .log {
-    width: 100%;
-    margin-bottom: 20px;
+  width: 100%;
+  margin-bottom: 10px;
 }
-
+.addContact input[type="text"],
 .loginBox input[type="text"],
 .loginBox input[type="email"],
 .loginBox input[type="password"],
 .signupBox input[type="text"],
 .signupBox input[type="email"],
 .signupBox input[type="password"] {
-    border: none;
-    border-bottom: 2px solid white;
-    outline: none;
-    height: 30px;
-    color: white;
-    background: transparent;
-    font-size: 16px;
-    padding-left: 20px;
-    box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid white;
+  outline: none;
+  height: 30px;
+  color: white;
+  background: transparent;
+  font-size: 16px;
+  padding-left: 20px;
+  box-sizing: border-box;
+  text-align: center;
 }
-
+.addContact input[type="text"]:hover,
 .loginBox input[type="text"]:hover,
 .loginBox input[type="email"]:hover,
 .loginBox input[type="password"]:hover,
 .signupBox input[type="text"]:hover,
 .signupBox input[type="email"]:hover,
 .signupBox input[type="password"]:hover {
-    color: gray;
-    border: 1px solid rgb(42 70 37 / 87%);
-    ;
-    box-shadow: 0 0 5px white, 0 0 10px rgba(229, 99, 63, 0.2), 0 0 15px rgba(255, 77, 0, 0.1), 0 2px 0 black
+  color: rgb(16, 86, 50);
+  border: 1px solid rgb(42 70 37 / 87%);
+  box-shadow: 0 0 5px white, 0 0 10px rgba(229, 99, 63, 0.2),
+    0 0 15px rgba(255, 77, 0, 0.1), 0 2px 0 black;
 }
 
+.addContact input[type="text"]:focus,
 .loginBox input[type="text"]:focus,
 .loginBox input[type="email"]:focus,
 .loginBox input[type="password"]:focus,
 .signupBox input[type="text"]:focus,
 .signupBox input[type="email"]:focus,
 .signupBox input[type="password"]:focus {
-    border-bottom: 2px solid rgb(131, 66, 66);
+  border-bottom: 2px solid rgb(131, 66, 66);
+}
+h1{
+  background-color:rgba(14, 60, 2, 0.515);
+  margin-left: 50px;
+  margin-right: 75px;
 }
 
 .signup,
 .back {
   color: white;
-    cursor: pointer;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: underline;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
-
 .inputBox {
-    position: relative;
+  position: relative;
 }
 
 .inputBox span {
-    position: absolute;
-    top: 10px;
-    color: #262626;
+  position: absolute;
+  top: 10px;
+  color: #262626;
 }
 
 .log {
-    border: none;
-    outline: none;
-    height: 35px;
-    font-size: 20px;
-    background: white;
-    color: rgb(42 70 37 / 87%);
-    border-radius: 20px;
-    cursor: pointer;
+  border: none;
+  outline: none;
+  height: 35px;
+  font-size: 20px;
+  background: white;
+  color: rgb(42 70 37 / 87%);
+  border-radius: 20px;
+  cursor: pointer;
 }
 
-
-.background{
+.background {
   background-color: rgb(224, 228, 224);
   position: absolute;
   top: 0;
@@ -132,10 +138,134 @@ color: white;
   left: 0;
 }
 
-.logColor{
+.logColor {
   color: rgb(212, 212, 212);
 }
-.p{
+.p {
   color: rgb(184, 183, 183);
 }
 
+/* view Contacts */
+.thead {
+ margin-left: 50px;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+width: 94%;
+  text-align: center;
+  
+
+
+}
+
+
+
+
+tr,td,tr{
+  background-color: #0e3c0247;
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: center;
+}
+td{
+  width: 20%;
+}
+
+th{
+  padding: 10px;
+}
+
+  .tbody{
+    margin-left: 50px;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 89.5%;
+    text-align: center;
+  
+  }
+
+.no{
+  border:1px solid  white;
+  background-color: white;
+ 
+ 
+}
+.noo{
+  border:none;
+  background-color: whitesmoke;
+  border: 1px solid whitesmoke;
+ 
+ 
+}
+
+
+
+.addContact{
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+ /* Enable scroll if needed */
+
+}
+
+.btn-addCont{
+  background-color: rgb(224, 228, 224);
+  color: rgb(1, 27, 1);
+ border: none;
+  padding: 5px;
+  border-radius: 5%;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.leaflet-container{
+  width: 100%;
+  height: 120px;
+}
+
+.icon{
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.modal{
+  width: 700px;
+ 
+}
+
+.search{
+  color: rgb(3, 49, 3);
+  font-weight: bold;
+}
+
+.searchInput{
+  color: green !important;
+  border-bottom: 2px solid black !important;
+  border: 1px solid green !important;
+
+}
+
+.logout{
+
+  color: red;
+  font-weight: bold;
+  padding: 3px;
+  margin-bottom: 5px;
+  float: right;
+  padding-left: 7px;
+  padding-right:7px;
+ 
+
+}
