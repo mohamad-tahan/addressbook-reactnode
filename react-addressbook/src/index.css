@@ -150,7 +150,7 @@ h1{
  margin-left: 50px;
   font-family: arial, sans-serif;
   border-collapse: collapse;
-width: 94%;
+width: 94.8%;
   text-align: center;
   
 
@@ -212,6 +212,10 @@ th{
  border: none;
   padding: 5px;
   border-radius: 5%;
+  float: right;
+  margin-right: 80px;
+  cursor: pointer;;
+  
 }
 
 .close {
@@ -248,6 +252,8 @@ th{
 .search{
   color: rgb(3, 49, 3);
   font-weight: bold;
+  float: left;
+  margin-left: 50px;
 }
 
 .searchInput{
@@ -266,6 +272,7 @@ th{
   float: right;
   padding-left: 7px;
   padding-right:7px;
+  cursor: pointer;
  
 
 }

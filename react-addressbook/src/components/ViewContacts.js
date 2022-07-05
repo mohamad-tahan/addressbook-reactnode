@@ -102,13 +102,13 @@ const deleteContact = async (id) => {
   return (
     <div className="addContact">
      <Logout/>
-      <center><h1>Hello {name}</h1>
+      <center><h1>{name}'s Contacts</h1>
       
       
       </center>  
         <br/>
         <label className="search">Search <input className="searchInput" type="text" onChange={(event) =>handleSearch(event)}/></label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       
         <button className="btn-addCont" onClick={()=>{showModal()} }> Add a Contact</button>
         {isModal && <AddContact setIsModal = {setIsModal}/> }
         <br/><br/>
