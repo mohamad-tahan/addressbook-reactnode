@@ -3,6 +3,7 @@ Here's a brief high-level overview of the tech stack the AddressBook app uses:
 - This project uses [React](https://reactjs.org/). React is a free and open-source front-end JavaScript library for building user interfaces based on UI components.
 - For persistent storage (database), the app uses [MongoDB](https://www.mongodb.com/) which allows the app to create custom storage schema and save it to a local database.
 - For the backend, this project uses [Node.js](https://nodejs.org/en/) which allows the app's routing, validation, caching, queues, file storage, and more.
+- For displaying the map, this project uses [React-Leaflet](https://react-leaflet.js.org/) package.
 
 <br>
 <img id="implementation">
