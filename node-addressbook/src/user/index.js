@@ -2,7 +2,7 @@ const { Router } = require('express');
 const { get, register, login } = require('./controller/user');
 const {addCont, getCont, removeContact, updateContact, getContbyId} = require('../contact/controller/contact')
 const router = Router();
-const testMiddleware = require('../../middleware/test');
+const testMiddleware = require('../../middleware/test');    
 
 // req -> from postman
 // res -> your api response

@@ -15,12 +15,7 @@ const ViewContacts = ({onDelete}) => {
   const name = localStorage.getItem("user_name");
   const[isModal, setIsModal] = useState(false);
   const[isUpdate, setUpdateModal] = useState(false);
-
   const [filteredData,setFilteredData] = useState(contacts);
-
-
-
-
 
 
   const getContacts = async () => {
@@ -34,9 +29,6 @@ const ViewContacts = ({onDelete}) => {
     );
     const data = await res.json();
     setFilteredData(data)
- 
-    // console.log(res);
-    // console.log(data);
 
     return data;
   };
@@ -48,13 +40,11 @@ const ViewContacts = ({onDelete}) => {
     setContacts(contactsFromServer);
   };
 
- // console.log(contacts);
   useEffect(() => {
     getData();
   }, []);
 
 
-//Delete Contacts
 const deleteContact = async (id) => {
     console.log(id);
 
