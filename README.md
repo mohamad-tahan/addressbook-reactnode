@@ -49,7 +49,7 @@ Here's a brief high-level overview of the tech stack the AddressBook app uses:
    ```
 
  #### To Run The Backend:
-  1. Navigate to the frontend folder
+  1. Navigate to the backend folder
    ```sh
    cd addressbook-reactnode/node-addressbook
    ```
